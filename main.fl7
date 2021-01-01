@@ -8,6 +8,7 @@ index : [
 ];
 
 {
+
   encode = table -> (
     &(
       table[] => SLICE >> 4 | (
@@ -23,4 +24,34 @@ index : [
       )
     )
   );
+
+  // experimental
+  encode_colored = table, colorMap -> (
+    &(
+      table[] => SLICE >> 4 | (
+        list_tenji : [0 ~ CEIL((_[] | $#_ => MAX) / 2) | [0 ~ 8 | NULL]];
+        r, _ : _[] | (
+          c, _ : _[] | (
+            list_tenji[c `DIV` 2][index[r][c % 2]] = colorMap[+_];
+          );
+        );
+        JOIN(list_tenji[] | (
+          color : ([_[] | _ ?: ()] | $#_ === 0 ? "" : (_[] => GROUP => SORT_BY >> \$#_ => FIRST | _.0));
+          char : FROM_CHARCODES([+(
+            H#2800,
+            _.0 !== NULL ? 1 : 0,
+            _.1 !== NULL ? 2 : 0,
+            _.2 !== NULL ? 4 : 0,
+            _.3 !== NULL ? 8 : 0,
+            _.4 !== NULL ? 16 : 0,
+            _.5 !== NULL ? 32 : 0,
+            _.6 !== NULL ? 64 : 0,
+            _.7 !== NULL ? 128 : 0,
+          )]);
+          color & char
+        ); "")
+      )
+    )
+  );
+
 }
