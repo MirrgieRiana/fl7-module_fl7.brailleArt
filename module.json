@@ -1,0 +1,9 @@
+{
+  name: "fl7.brailleArt",
+  files: [
+    "LICENCE",
+    "README.md",
+    "module.json",
+    "main.fl7"
+  ]
+}
