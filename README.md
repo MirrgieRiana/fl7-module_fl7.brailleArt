@@ -14,8 +14,7 @@ $ fl7m pull 'https://raw.githubusercontent.com/MirrgieRiana/fl7-module_fl7.brail
 # Usage
 
 ```
-lib_brailleArt : USE(MODULE(FILE; "fl7.brailleArt"));
-lib_brailleArt.encode([y : 0 .. 100 | [x : 0 .. 100 | ((x - 50) ^ 2 + (y - 50) ^ 2) <= 50 ^ 2]])
+$ fl7 'USE(MODULE(FILE; "fl7.brailleArt")).encode([y : 0 .. 100 | [x : 0 .. 100 | ((x - 50) ^ 2 + (y - 50) ^ 2) <= 50 ^ 2]])'
 ```
 
 outputs
