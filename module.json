@@ -1,6 +1,6 @@
 {
-  name: "fl7.brailleArt",
-  files: [
+  "name": "fl7.brailleArt",
+  "files": [
     "LICENCE",
     "README.md",
     "module.json",
