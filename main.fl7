@@ -36,7 +36,7 @@ index : [
           );
         );
         JOIN(list_tenji[] | (
-          color : ([_[] | _ ?: ()] | $#_ === 0 ? "" : (_[] => GROUP => SORT_BY >> \$#_ => FIRST | _.0));
+          color : ([_[] | _ ?: ()] | $#_ === 0 ? "" : (_[] => GROUP => SORTR_BY >> \$#_ => FIRST | _.0));
           char : FROM_CHARCODES([+(
             H#2800,
             _.0 !== NULL ? 1 : 0,
